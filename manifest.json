@@ -1,0 +1,12 @@
+{
+  "project": "AI Front Office for Service Business",
+  "workflows": [
+    {"file":"workflows/01_channel_telegram.json","name":"01_channel_telegram","node_count":29,"active_after_import":false},
+    {"file":"workflows/03_ingress_core.json","name":"03_ingress_core","node_count":4,"active_after_import":false},
+    {"file":"workflows/10_process_conversation_turn_STABLE.json","name":"10_process_conversation_turn_STABLE","node_count":21,"active_after_import":false},
+    {"file":"workflows/21_handle_request_STABLE.json","name":"21_handle_request_STABLE","node_count":41,"active_after_import":false}
+  ],
+  "required_database_functions": [
+    "ingest_channel_event","claim_conversation_turn","merge_request_draft","create_clarification_response","create_slot_offer_response","hold_selected_slot_response","submit_confirmed_request_response","change_slot_response","cancel_draft_response","reopen_draft_for_edit_response","handle_service_resolution_fallback","handle_human_request_response","create_unsafe_handoff_response","create_unsupported_input_response","apply_operator_handoff_action"
+  ]
+}
