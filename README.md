@@ -74,10 +74,10 @@ flowchart LR
 ```text
 .
 ├── workflows/
-│   ├── 01_channel_telegram.json
+│   ├── 01_channel_telegram.json.gz
 │   ├── 03_ingress_core.json
-│   ├── 10_process_conversation_turn_STABLE.json
-│   └── 21_handle_request_STABLE.json
+│   ├── 10_process_conversation_turn_STABLE.json.gz
+│   └── 21_handle_request_STABLE.json.gz
 ├── docs/
 │   ├── architecture.md
 │   ├── business-effect.md
@@ -119,18 +119,19 @@ flowchart LR
 
 1. Развернуть n8n, PostgreSQL/Supabase и Ollama.
 2. Подготовить таблицы и SQL-функции из раздела [sql/README.md](sql/README.md).
-3. Импортировать workflow в порядке:
+3. Распаковать workflow: `gzip -dk workflows/*.json.gz`.
+4. Импортировать workflow в порядке:
    1. `03_ingress_core`;
    2. `21_handle_request_STABLE`;
    3. `10_process_conversation_turn_STABLE`;
    4. `01_channel_telegram`.
-4. Создать Postgres и Telegram credentials.
-5. Повторно выбрать дочерние workflow в нодах `Execute Sub-workflow`.
-6. В `02 Channel Configuration` указать tenant, Telegram-чат операторов и разрешённые user ID.
-7. Проверить доступ n8n к Ollama по адресу `http://host.docker.internal:11434`.
-8. Опубликовать workflow и прогнать smoke-тесты.
+5. Создать Postgres и Telegram credentials.
+6. Повторно выбрать дочерние workflow в нодах `Execute Sub-workflow`.
+7. В `02 Channel Configuration` указать tenant, Telegram-чат операторов и разрешённые user ID.
+8. Проверить доступ n8n к Ollama по адресу `http://host.docker.internal:11434`.
+9. Опубликовать workflow и прогнать smoke-тесты.
 
-Экспортированные JSON очищены от credential ID, instance ID и реальных Telegram ID. После импорта credentials и ссылки на sub-workflow нужно назначить заново.
+Экспорты очищены от credential ID, instance ID и реальных Telegram ID. После импорта credentials и ссылки на sub-workflow нужно назначить заново.
 
 ## Основной сценарий
 
