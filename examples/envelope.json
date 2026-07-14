@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "tenant_id": "demo_hvac",
+  "channel": "telegram",
+  "channel_account_id": "demo_hvac_bot",
+  "external_event_id": "tg:demo_hvac_bot:update:123456",
+  "external_conversation_key": "tg:demo_hvac_bot:chat:100000001",
+  "customer": {
+    "external_id": "100000001",
+    "name": "Демо-клиент",
+    "username": "demo_user",
+    "language_code": "ru",
+    "phone": null,
+    "phone_verified": false
+  },
+  "message": {
+    "type": "text",
+    "text": "Кондиционер Haier не охлаждает. Зеленоград, корпус 458.",
+    "contact": null,
+    "callback": null,
+    "attachments": []
+  },
+  "transport": {
+    "update_id": "123456",
+    "chat_id": "100000001",
+    "chat_type": "private",
+    "telegram_message_id": "101",
+    "callback_query_id": null
+  },
+  "occurred_at": "2026-07-14T14:00:00.000Z",
+  "received_at": "2026-07-14T14:00:01.000Z",
+  "metadata": {
+    "source_occurred_at": "2026-07-14T14:00:00.000Z",
+    "event_kind": "customer_event"
+  }
+}
